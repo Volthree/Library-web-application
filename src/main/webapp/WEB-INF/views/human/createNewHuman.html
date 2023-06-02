@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>CreateNewHuman</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/human}" th:object="${newHuman}">
+    <p>
+        <label for="newName">Enter name</label>
+        <input type="text" th:field="*{name}" id="newName"/>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+    </p>
+    <p>
+        <label for="newAge">Enter birthday</label>
+        <input type="text" th:field="*{birthday}" id="newAge"/>
+    <div style="color: red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Error</div>
+    </p>
+    <p>
+        <input type="submit" value="Apply"/>
+    </p>
+</form>
+<form th:method="GET" th:action="@{/human}">
+    <p>
+        <input type="submit" value="Return"/>
+    </p>
+</form>
+
+</body>
+</html>
