@@ -1,23 +1,32 @@
 package com.example.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import jdk.jfr.DataAmount;
 
+@Entity
+@Table(name = "books")
 public class Book {
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "humanid")
     private int humanid;
    // @NotEmpty(message = "Book name should not be empty")
     @Size(min = 2, max = 30, message = "Book name should be >=2 and <=30 characters")
+    @Column(name = "bookName")
     private String bookName;
    // @NotEmpty(message = "Author should not be empty")
     @Size(min = 2, max = 30, message = "Author should be >=2 and <=30 characters")
+    @Column(name = "author")
     private String author;
    // @NotEmpty(message = "Release date should not be empty")
   //  @Size(min = 4, max = 4, message = "Release date should contain 4 digits")
 
     @Min(value = 0, message = "Release date >= 0")
     @Max(value = 2023, message = "Release date <= 2023")
+    @Column(name = "releaseDate")
     private int releaseDate;
 
     public Book() {
