@@ -37,11 +37,15 @@ public class BookDAO {
     public void addNewBook(Book book) {
 //        jdbcTemplate.update("insert into books(humanid, bookname, author, releaseDate) values(null, ?, ?, ?)",
 //                book.getBookName(), book.getAuthor(), book.getReleaseDate());
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(book);
     }
-
+    @Transactional
     public Book getCurrentBook(int id) {
         //return showAllBooks().stream().filter(Book->Book.getId()==id).findAny().orElse(null);
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Book b = session.createQuery("select bb from Book bb where id = :thisid", Book.class).setParameter("thisid", Integer.toString(id)).getSingleResult();
+        return b;
     }
 
     public Book getCurrentBook(String book) {

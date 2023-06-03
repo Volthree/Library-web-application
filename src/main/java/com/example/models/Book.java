@@ -28,6 +28,9 @@ public class Book {
     @Max(value = 2023, message = "Release date <= 2023")
     @Column(name = "releaseDate")
     private int releaseDate;
+    @ManyToOne
+    @JoinColumn(name = "humanid", referencedColumnName = "id")
+    private Human humanKey;
 
     public Book() {
     }
@@ -38,6 +41,14 @@ public class Book {
         this.bookName = bookName;
         this.author = autor;
         this.releaseDate = releaseDate;
+    }
+
+    public Human getHumanKey() {
+        return humanKey;
+    }
+
+    public void setHumanKey(Human humanKey) {
+        this.humanKey = humanKey;
     }
 
     public int getId() {
