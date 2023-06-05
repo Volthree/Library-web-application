@@ -58,12 +58,14 @@ public class BookDAO {
 //        jdbcTemplate.update("update books set bookname=?, author=?, releaseDate=? where id=?",
 //                book.getBookName(), book.getAuthor(), book.getReleaseDate(), id);
     }
-
+    @Transactional
     public Human getOwner(int id) {
 //        return jdbcTemplate.query("select human.id, human.name, human.birthday from human " +
 //                "inner join books on human.id=books.humanid " +
 //                "where books.id=?", new Object[]{id}, new HumanMapper()).stream().findAny().orElse(null);
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Human h = session.get(Human.class, id);
+        return h;
     }
 
     public List<Human> getAllHumans() {
