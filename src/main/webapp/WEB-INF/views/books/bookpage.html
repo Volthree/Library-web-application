@@ -40,8 +40,12 @@
     </p>
 </form>
 
-    <form th:method="GET" th:action="@{/books}">
+    <form th:method="GET" th:action="@{/books?page='q'&book_per_page='w'}">
         <p>
+            <label hidden="hidden" for="q"></label>
+            <input type=hidden id="q" name="page" value="0">
+            <label hidden="hidden" for="w"></label>
+            <input type="hidden" id="w" name="book_per_page" value="3">
             <input type="submit" value="Return"/>
         </p>
     </form>

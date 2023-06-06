@@ -22,5 +22,28 @@
     </p>
 </form>
 
+<div th:if="${pageNum}>0">
+    <form th:method="GET" th:action="@{/books}">
+        <p>
+            <label hidden="hidden" for="k"></label>
+            <input type=hidden id="k" name="page" th:value="${pageNum - 1}">
+            <label hidden="hidden" for="l"></label>
+            <input type="hidden" id="l" name="book_per_page" value="3">
+            <input type="submit" value="Previous page"/>
+        </p>
+    </form>
+</div>
+<div th:if="${booklist.size()}==3">
+    <form th:method="GET" th:action="@{/books?page='q'&book_per_page='w'}">
+        <p>
+            <label hidden="hidden" for="p"></label>
+            <input type=hidden id="p" name="page" th:value="${pageNum + 1}">
+            <label hidden="hidden" for="t"></label>
+            <input type="hidden" id="t" name="book_per_page" value="3">
+            <input type="submit" value="Next page"/>
+        </p>
+    </form>
+</div>
+
 </body>
 </html>

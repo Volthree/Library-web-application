@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/books}" th:object="${newBook}">
+<form th:method="POST" th:action="@{/books?page=1&book_per_page=3}" th:object="${newBook}">
   <p>
     <label for="newName">Enter book name</label>
     <input type="text" th:field="*{bookName}" id="newName"/>
@@ -26,8 +26,12 @@
     <input type="submit" value="Apply"/>
   </p>
 </form>
-<form th:method="GET" th:action="@{/books}">
+<form th:method="GET" th:action="@{/books?page='q'&book_per_page='w'}">
   <p>
+    <label hidden="hidden" for="q"></label>
+    <input type=hidden id="q" name="page" value="0">
+    <label hidden="hidden" for="w"></label>
+    <input type="hidden" id="w" name="book_per_page" value="3">
     <input type="submit" value="Return"/>
   </p>
 </form>
