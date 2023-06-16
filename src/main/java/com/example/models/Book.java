@@ -16,6 +16,7 @@ public class Book {
    // @NotEmpty(message = "Release date should not be empty")
   //  @Size(min = 4, max = 4, message = "Release date should contain 4 digits")
 
+//    that's also not a day, a year, should be named accordingly and better to use proper type
     @Min(value = 0, message = "Release date >= 0")
     @Max(value = 2023, message = "Release date <= 2023")
     private int releaseDate;

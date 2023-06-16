@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+// write simple unit test for this
+
 @Component
 public class HumanValidator implements Validator {
 
@@ -25,6 +27,9 @@ public class HumanValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Human human = (Human) target;
+
+//        empty block
+//
         if(humanDAO.getCurrentHuman(human.getName()) != null){
 
         }

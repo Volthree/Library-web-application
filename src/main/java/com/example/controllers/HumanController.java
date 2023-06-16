@@ -12,6 +12,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+
+// This class is a good candidate to write unit tests for.
+// There's no a single test in the project, it's good to have some
+
+
 @Controller
 @RequestMapping("/human")
 public class HumanController {

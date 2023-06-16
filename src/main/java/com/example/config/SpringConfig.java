@@ -81,6 +81,7 @@ public class SpringConfig implements WebMvcConfigurer {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
+//        what is this used for? it seems like there's a config file with user/pass
         dataSource.setDriverClassName(Objects.requireNonNull(environment.getProperty("driver")));
         dataSource.setUrl(environment.getProperty("url"));
         dataSource.setUsername(environment.getProperty("username1"));
@@ -93,6 +94,8 @@ public class SpringConfig implements WebMvcConfigurer {
     public JdbcTemplate jdbcTemplate(){
         return new JdbcTemplate(dataSource());
     }
+
+//    some dead comments
     //11111111111111111111111
 
 }

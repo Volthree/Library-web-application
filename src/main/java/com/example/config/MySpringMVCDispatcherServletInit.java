@@ -1,3 +1,4 @@
+// it makes sense to rename this one
 package com.example.config;
 
 import jakarta.servlet.ServletContext;

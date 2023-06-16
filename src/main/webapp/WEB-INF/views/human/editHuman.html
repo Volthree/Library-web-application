@@ -9,6 +9,7 @@
 <form th:method="PATCH" th:action="@{/human/{id}(id=${updatedHuman.getId()})}" th:object="${updatedHuman}">
     <p><label for="name">Enter new name</label>
     <input type="text" th:field="*{name}" id="name"/></p>
+<!--    is error text shown here? it would be nice if not-->
     <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
     <p><label for="birthday">Enter new birthday </label>
         <input type="text" th:field="*{birthday}" id="birthday"/></p>
