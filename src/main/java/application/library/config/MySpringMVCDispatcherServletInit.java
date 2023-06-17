@@ -1,4 +1,4 @@
-package com.example.config;
+package application.library.config;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -29,6 +29,6 @@ public class MySpringMVCDispatcherServletInit extends AbstractAnnotationConfigDi
 
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter",
-                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null, true, "/*");
     }
 }

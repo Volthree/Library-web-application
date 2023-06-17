@@ -1,7 +1,7 @@
-package com.example.util;
+package application.library.util;
 
-import com.example.dao.HumanDAO;
-import com.example.models.Human;
+import application.library.dao.HumanDAO;
+import application.library.models.Human;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -25,8 +25,7 @@ public class HumanValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Human human = (Human) target;
-        if(humanDAO.getCurrentHuman(human.getName()) != null){
-
+        if(humanDAO.getHumanByName(human.getName()) != null){
         }
         errors.rejectValue("name", "", "Name already exists");
     }

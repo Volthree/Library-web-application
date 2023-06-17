@@ -1,9 +1,9 @@
-package com.example.controllers;
+package application.library.controllers;
 
-import com.example.dao.HumanDAO;
-import com.example.models.Book;
-import com.example.models.Human;
-import com.example.util.HumanValidator;
+import application.library.dao.HumanDAO;
+import application.library.models.Book;
+import application.library.models.Human;
+import application.library.util.HumanValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/human")
 public class HumanController {
-    private final HumanDAO  humanDAO;
+    private final HumanDAO humanDAO;
     private final HumanValidator humanValidator;
 
     @Autowired
@@ -26,7 +26,7 @@ public class HumanController {
 
     @GetMapping()
     public String getAllHuman(Model model) {
-        model.addAttribute("allHuman", humanDAO.showAllHumans());
+        model.addAttribute("allHuman", humanDAO.getAllHumans());
         return "human/showHuman";
     }
 
@@ -40,13 +40,13 @@ public class HumanController {
     public String addNewHuman(@ModelAttribute("newHuman") @Valid Human human, BindingResult bindingResult) {
         humanValidator.validate(human, bindingResult);
         if(bindingResult.hasErrors()) return "human/createNewHuman";
-        humanDAO.addNewHuman(human);
+        humanDAO.addHuman(human);
         return "redirect:/human";
     }
 
     @GetMapping("/{id}/edit")
     public String editHuman(@PathVariable("id") int id, Model model) {
-        Human human = humanDAO.getCurrentHuman(id);
+        Human human = humanDAO.getHumanById(id);
         model.addAttribute("updatedHuman", human);
         return "/human/editHuman";
     }
@@ -56,14 +56,14 @@ public class HumanController {
                              BindingResult bindingResult) {
         humanValidator.validate(human, bindingResult);
         if(bindingResult.hasErrors()) return "/human/editHuman";
-        humanDAO.patchHuman(id, human);
+        humanDAO.updateHuman(id, human);
         return "redirect:/human";
     }
     @GetMapping("/{id}")
     public String showHuman(@PathVariable("id") int id, Model model){
-        Human human = humanDAO.getCurrentHuman(id);
+        Human human = humanDAO.getHumanById(id);
         model.addAttribute("currenthuman", human);
-        List<Book> lb = humanDAO.showBooks(id);
+        List<Book> lb = humanDAO.getBookdByHumanId(id);
         model.addAttribute("books", lb);
         return "human/page";
     }

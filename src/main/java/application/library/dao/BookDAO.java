@@ -1,9 +1,8 @@
-package com.example.dao;
+package application.library.dao;
 
-import com.example.models.Book;
-import com.example.models.Human;
+import application.library.models.Book;
+import application.library.models.Human;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 

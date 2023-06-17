@@ -1,4 +1,4 @@
-package com.example.models;
+package application.library.models;
 
 import jakarta.validation.constraints.*;
 import jdk.jfr.DataAmount;

@@ -1,9 +1,9 @@
-package com.example.controllers;
+package application.library.controllers;
 
-import com.example.dao.BookDAO;
-import com.example.models.Book;
-import com.example.models.Human;
-import com.example.util.BookValidator;
+import application.library.dao.BookDAO;
+import application.library.models.Book;
+import application.library.models.Human;
+import application.library.util.BookValidator;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

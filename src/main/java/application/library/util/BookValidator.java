@@ -1,7 +1,7 @@
-package com.example.util;
+package application.library.util;
 
-import com.example.dao.BookDAO;
-import com.example.models.Book;
+import application.library.dao.BookDAO;
+import application.library.models.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
